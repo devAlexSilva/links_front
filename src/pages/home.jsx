@@ -28,7 +28,7 @@ export default function Home(props) {
 
         try {
 
-            await api.post(`/links/${id}/delete`);
+            await api.delete(`/links/delete/${id}`);
             Router.push('/home');
 
         } catch (error) {
@@ -55,7 +55,7 @@ export default function Home(props) {
 
                 <div className={styles.sidebar}>
                     <div>
-                        <Link href={'/form/formAdd'}>
+                        <Link href={'/cardAdd'}>
                             <button type="submit">
                                 <span> + </span>
                             </button>
@@ -72,22 +72,15 @@ export default function Home(props) {
 
                                         <li>{item.title}</li>
                                         <li>{item.content}</li>
-                                        <li>{item.category}</li>
+                                        <li className={styles.title}>{item.category}</li>
                                         <li>{item.user}</li>
 
                                         <div>
                                             <button
                                                 type="submit"
-                                                onClick={() => { deleteForm(item._id) }}>
+                                                onClick={() => { deleteForm(item._id)}}>
                                                 <span> delete </span>
                                             </button>
-                                        </div>
-                                        <div>
-                                            <Link href={'/form/formAdd'}>
-                                                <button type="submit">
-                                                    <span> + </span>
-                                                </button>
-                                            </Link>
                                         </div>
                                     </div>
                                 )

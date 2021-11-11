@@ -101,10 +101,11 @@
   font-size: 1.5rem;
 }
 
-.card p {
+.card li {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   line-height: 1.5;
+  color: aquamarine;
 }
 
 
