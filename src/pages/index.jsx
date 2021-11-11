@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import { AuthContext } from '../contexts/authContext';
 import { api } from '../apiLinks/axiosClientSide';
 import { parseCookies } from 'nookies';
+import styles from '../../styles/pages/index.module.css';
 
 
 export default function ScreenLogin() {
@@ -21,54 +22,51 @@ export default function ScreenLogin() {
   }
 
   return (
-    <div>
+    <div className={styles.body}>
       <Head>
         <title>LIA</title>
       </Head>
-
-      <form onSubmit={handleSubmit(login)}>
-        <input type="hidden" name="remember" defaultValue="true" />
-        <div>
-
+      <section className={styles.section}>
+        <form className={styles.form} onSubmit={handleSubmit(login)}>
+          <input type="hidden" name="remember" defaultValue="true" />
           <div>
-            <label htmlFor="email-address">
-              Email address
+
+            <div className={styles.inputField}>
+              <label htmlFor="email-address">
+                Email address
               </label>
-            <input
-              {...register('email')}
-              id="email-address"
-              name="email"
-              type="email"
-              autoComplete="email"
-              required
-              placeholder="Email address"
-            />
+              <input
+                {...register('email')}
+                id="email-address"
+                name="email"
+                type="email"
+                autoComplete="email"
+                required
+                placeholder="Email address"
+              />
+            </div>
+
+            <div className={styles.inputField}>
+              <label htmlFor="password">
+                Password
+              </label>
+              <input
+                {...register('password')}
+                id="password"
+                name="password"
+                type="password"
+                autoComplete="current-password"
+                required
+                placeholder="Password"
+              />
+            </div>
+
           </div>
-
-          <div>
-            <label htmlFor="password">
-              Password
-            </label>
-            <input
-              {...register('password')}
-              id="password"
-              name="password"
-              type="password"
-              autoComplete="current-password"
-              required
-              placeholder="Password"
-            />
-          </div>
-
-        </div>
-
-        <div>
-          <button type="submit">
-            <span> Login </span>
-          </button>
-        </div>
-
-      </form>
+            <button className={styles.btnLogar} type="submit">
+              <span> Login </span>
+            </button>
+        </form>
+      </section>
     </div>
   )
 }
