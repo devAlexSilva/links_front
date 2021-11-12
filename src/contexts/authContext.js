@@ -2,6 +2,7 @@ import axios from "axios";
 import { createContext, useState } from "react";
 import { destroyCookie, setCookie } from 'nookies'
 import Router from 'next/router'
+import { api } from "../apiLinks/axiosClientSide";
 
 export const AuthContext = createContext({})
 
@@ -9,19 +10,11 @@ export function AuthProvider({ children }) {
     const [user, setUser] = useState();
 
 
-    const authenticate = !!user;
+    const isAuthenticate = !!user;
 
     async function auth({ email, password }) {
-        const { data: { dataUser, token } } = await axios({
-            method: 'POST',
-            url: 'https://api-card-task.herokuapp.com/login',
-            data: {
-                email: email,
-                password: password
-            }
-
-        });
-
+        const { data: { dataUser, token } } = await api.post('/login', { email, password });
+        
         setCookie(null, 'tokenCardLink', token, {
             maxAge: 1800 // 30 minutos
         })
@@ -37,8 +30,9 @@ export function AuthProvider({ children }) {
         Router.push('/');
     }
 
+
     return (
-        <AuthContext.Provider value={{ authenticate, auth, cancelCookie, user }}>
+        <AuthContext.Provider value={{ isAuthenticate, auth, cancelCookie, user }}>
             {children}
         </AuthContext.Provider>
     )

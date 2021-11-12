@@ -1,19 +1,14 @@
+.container {
+  max-height: 100vh;
+}
+
 .main {
   display: flex;
   background-color: rgb(6, 5, 8);
   box-sizing: border-box;
-  min-height: 100vh;
+  height: 82vh;
 }
 
-.sidebar {
-  width: 35%;
-  max-width: 415px;
-  display: flex;
-  flex-direction: column;
-  border-right: 7px dotted rgba(150, 150, 150, 0.986);
-  background-color: rgba(155, 153, 185, 0.5);
-  
-}
 
 .centerArea {
   
@@ -24,21 +19,6 @@
 }
 
 
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
 
 .title a {
   color: #0070f3;

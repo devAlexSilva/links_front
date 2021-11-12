@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    
+  }
+  
+  .container div {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-grow: 1;
+  }
+
+  .container .img {
+    justify-content: right;
+}

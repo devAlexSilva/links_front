@@ -16,15 +16,15 @@ export default function ScreenLogin() {
 
     await auth({ email, password });
 
-    const { token_lia } = parseCookies();
-    api.defaults.headers['authorization'] = `Bearer ${token_lia}`;
+    const { tokenCardLink } = parseCookies();
+    api.defaults.headers['authorization'] = `Bearer ${tokenCardLink}`;
 
   }
 
   return (
     <div className={styles.body}>
       <Head>
-        <title>LIA</title>
+        <title>cardLink</title>
       </Head>
       <section className={styles.section}>
         <form className={styles.form} onSubmit={handleSubmit(login)}>
