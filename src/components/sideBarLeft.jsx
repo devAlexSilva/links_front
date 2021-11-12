@@ -1,16 +1,17 @@
-import { useContext } from 'react'
-import { AuthContext } from '../contexts/authContext'
 import styles from '../../styles/components/sideBarLeft.module.css'
 import Link from 'next/link';
-
+import { parseCookies } from 'nookies'
 
 export function SideBarLeft() {
 
-    const { user } = useContext(AuthContext); // quando atualiza a pagina o user fica undefined
+    const { 'cdlUser': userLoged } = parseCookies()
+
+
     return (// só estou conseguindo usar quando faço login
         <div className={styles.sidebar}>
             <div>
-                <h1>{console.log(user)}</h1>
+                <span>Usuario logado:</span>
+                <h1>{userLoged}</h1>
             </div>
             <div>
                 <p>obarra lateral</p>
