@@ -1,7 +1,9 @@
 import { axiosClient } from "../../apiLinks/axiosServerSide"
 import { useForm } from 'react-hook-form'
 import { api } from "../../apiLinks/axiosClientSide";
-import  Router from "next/router";
+import Router from "next/router";
+import { Header } from "../../components/header";
+import { SideBarLeft } from "../../components/sideBarLeft";
 
 
 export default function CardUpdate(props) {
@@ -18,15 +20,16 @@ export default function CardUpdate(props) {
 
 
     async function updateForm(data) {
-       const res = await api.patch(`/links/update/${id}`, data)
-console.log(res.data)
+        const res = await api.patch(`/links/update/${id}`, data)
+        console.log(res.data)
         Router.push('/home');
     }
 
     return (
         <div>
 
-
+            <Header />
+            <SideBarLeft />
             <form onSubmit={handleSubmit(updateForm)}>
                 <div>
 

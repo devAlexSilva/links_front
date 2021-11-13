@@ -13,23 +13,27 @@ export function SideBarLeft() {
                 <span>Usuario logado:</span>
                 <h1>{userLoged}</h1>
             </div>
-            <div>
+            
                 <p>obarra lateral</p>
-            </div>
-            <div>
-                <p>opções</p>
-            </div>
-            <div>
-                <p>obarra lateral</p>
-            </div>
-
-            <div>
+            
+                <p>
+                
                 <Link href={'/cardAdd'}>
                     <button type="submit">
-                        <span> + </span>
+                        <span> add </span>
                     </button>
                 </Link>
-            </div>
+            
+                </p>
+                        
+                <p>obarra lateral</p>
+
+                <Link href={'/home'}>
+                    <button type="submit">
+                        <span> home </span>
+                    </button>
+                </Link>
+            
         </div>
     )
 }

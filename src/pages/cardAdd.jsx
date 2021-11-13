@@ -2,6 +2,8 @@ import Head from 'next/head'
 import { useForm } from 'react-hook-form'
 import { api } from '../apiLinks/axiosClientSide';
 import Router from 'next/router';
+import { Header } from '../components/header';
+import { SideBarLeft } from '../components/sideBarLeft';
 
 
 
@@ -29,10 +31,9 @@ export default function CardAdd(){
 
     return (
         <div>
-            <Head>
-                <title>LIA</title>
-            </Head>
-
+            <Header />
+            <SideBarLeft />
+            
             <form onSubmit={handleSubmit(saveForm)}>
                 <div>
 
