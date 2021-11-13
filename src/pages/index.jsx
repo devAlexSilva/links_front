@@ -13,12 +13,10 @@ export default function ScreenLogin() {
 
 
   async function login({ email, password }) {
-
     await auth({ email, password });
 
     const { tokenCardLink } = parseCookies();
     api.defaults.headers['authorization'] = `Bearer ${tokenCardLink}`;
-
   }
 
   return (
@@ -30,7 +28,6 @@ export default function ScreenLogin() {
         <form className={styles.form} onSubmit={handleSubmit(login)}>
           <input type="hidden" name="remember" defaultValue="true" />
           <div>
-
             <div className={styles.inputField}>
               <label htmlFor="email-address">
                 Email address
@@ -45,7 +42,6 @@ export default function ScreenLogin() {
                 placeholder="Email address"
               />
             </div>
-
             <div className={styles.inputField}>
               <label htmlFor="password">
                 Password
@@ -60,7 +56,6 @@ export default function ScreenLogin() {
                 placeholder="Password"
               />
             </div>
-
           </div>
             <button className={styles.btnLogar} type="submit">
               <span> Login </span>

@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import { api } from '../apiLinks/axiosClientSide';
 import { axiosClient } from '../apiLinks/axiosServerSide';
 import styles from '../../styles/pages/Home.module.css'
@@ -6,15 +5,14 @@ import Router from 'next/router'
 import { SideBarLeft } from '../components/sideBarLeft';
 import { Header } from '../components/header';
 import { Footer } from '../components/footer';
+import Link from 'next/link';
 
 
 
 export default function Home(props) {
 
-
     async function deleteForm(id) {
         try {
-
             await api.delete(`/links/delete/${id}`);
             Router.push('/home');
 
@@ -26,11 +24,8 @@ export default function Home(props) {
     return (
         <div className={styles.container}>
             <Header />
-
             <main className={styles.main}>
-
                 <SideBarLeft />
-
                 <div className={styles.centerArea}>
                     <div className={styles.grid}>
                         {
@@ -41,7 +36,6 @@ export default function Home(props) {
                                         <li>{item.title}</li>
                                         <li>{item.content}</li>
                                         <li className={styles.title}>{item.category}</li>
-                                        <li>{item.user}</li>
 
                                         <div>
                                             <button
@@ -51,11 +45,11 @@ export default function Home(props) {
                                             </button>
                                         </div>
                                         <div>
-                                            <button
-                                                type="submit"
-                                                onClick={() => { updateForm(item._id) }}>
-                                                <span> update </span>
-                                            </button>
+                                            <Link href={`/cardUpdate/${item._id}`}>
+                                                <button type="submit">
+                                                <span> edit </span>
+                                                </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 )
@@ -64,9 +58,7 @@ export default function Home(props) {
                     </div>
                 </div>
             </main>
-
             <Footer />
-
         </div>
     )
 }

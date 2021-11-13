@@ -7,7 +7,7 @@ export function SideBarLeft() {
     const { 'cdlUser': userLoged } = parseCookies()
 
 
-    return (// só estou conseguindo usar quando faço login
+    return (
         <div className={styles.sidebar}>
             <div>
                 <span>Usuario logado:</span>
