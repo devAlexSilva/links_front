@@ -1,23 +1,37 @@
 import Head from 'next/head'
-import { useContext } from 'react';
 import { useForm } from 'react-hook-form'
-import { AuthContext } from '../contexts/authContext';
 import { api } from '../apiLinks/axiosClientSide';
-import { parseCookies } from 'nookies';
+import { parseCookies, setCookie } from 'nookies';
 import styles from '../../styles/pages/index.module.css';
+import Router from 'next/router';
 
 
 export default function ScreenLogin() {
+
   const { register, handleSubmit } = useForm();
-  const { auth } = useContext(AuthContext)
 
 
   async function login({ email, password }) {
-    await auth({ email, password });
+    const { data: { dataUser, token } } = await api.post('/login', { email, password });
 
-    const { tokenCardLink } = parseCookies();
-    api.defaults.headers['authorization'] = `Bearer ${tokenCardLink}`;
+    setCookie(null, 'tokenCardLink', token, {
+      maxAge: 1800 // 30 minutos
+    })
+
+    setCookie(null, 'cdlUser', dataUser.name, {
+      maxAge: 1800,
+
+    })
+
+    Router.push('/home');
   }
+
+
+  const { tokenCardLink } = parseCookies();
+  api.defaults.headers['authorization'] = `Bearer ${tokenCardLink}`;
+
+
+
 
   return (
     <div className={styles.body}>
@@ -57,9 +71,9 @@ export default function ScreenLogin() {
               />
             </div>
           </div>
-            <button className={styles.btnLogar} type="submit">
-              <span> Login </span>
-            </button>
+          <button className={styles.btnLogar} type="submit">
+            <span> Login </span>
+          </button>
         </form>
       </section>
     </div>

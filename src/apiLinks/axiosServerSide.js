@@ -7,8 +7,8 @@ export function axiosClient(ctx){
 const { tokenCardLink } = parseCookies(ctx);
 
 const api = axios.create({
-  //baseURL: 'https://api-card-task.herokuapp.com'
-    baseURL: 'http://localhost:4000'
+  baseURL: 'https://api-card-task.herokuapp.com'
+  //baseURL: 'http://localhost:4000'
 });
 
 
