@@ -1,11 +1,25 @@
 .container {
     display: flex;
-    flex: 1;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    padding: 0.2rem;
+    background-color:#42426F;
     
   }
-  
+  .container div button{
+    background-color:#007FFF;
+    border-radius: 1rem;
+    margin: 0rem 0.27rem;
+    border: 2px solid blue;
+  }
+  .container div button:hover{
+    background-color:#A62A2A;
+  }
+
+  .img {
+    margin: 0rem 0.27rem;
+  }
+ /* 
   .container div {
     display: flex;
     justify-content: left;
@@ -15,4 +29,4 @@
 
   .container .img {
     justify-content: right;
-}
+}*/

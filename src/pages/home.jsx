@@ -6,6 +6,8 @@ import { SideBarLeft } from '../components/sideBarLeft';
 import { Header } from '../components/header';
 import { Footer } from '../components/footer';
 import Link from 'next/link';
+import { parseCookies } from 'nookies';
+
 
 
 
@@ -22,43 +24,38 @@ export default function Home(props) {
     }
 
     return (
-        <div className={styles.container}>
+        <div>
             <Header />
-            <main className={styles.main}>
-                <SideBarLeft />
-                <div className={styles.centerArea}>
-                    <div className={styles.grid}>
-                        {
-                            props.data.map(item => {
-                                return (
-                                    <div key={item._id} className={styles.card}>
-
-                                        <li>{item.title}</li>
-                                        <li>{item.content}</li>
-                                        <li className={styles.title}>{item.category}</li>
-
-                                        <div>
-                                            <button
-                                                type="submit"
-                                                onClick={() => { deleteForm(item._id) }}>
-                                                <span> delete </span>
-                                            </button>
-                                        </div>
-                                        <div>
-                                            <Link href={`/cardUpdate/${item._id}`}>
-                                                <button type="submit">
-                                                <span> edit </span>
-                                                </button>
-                                            </Link>
-                                        </div>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
-                </div>
-            </main>
-            <Footer />
+{/*<SideBarLeft /> */}             
+            <div className={styles.container}>
+                {
+                    props.data.map(item => {
+                        return (
+                            <div key={item._id} className={styles.card}>
+                                <ul className={styles.ul}>
+                                    <li>{item.title}</li>
+                                    <li>{item.content}</li>
+                                    <li className={styles.title}>{item.category}</li>
+                                </ul>
+                                <div>
+                                    <button
+                                        type="submit"
+                                        onClick={() => { deleteForm(item._id) }}>
+                                        <span> delete </span>
+                                    </button>
+                        
+                                    <Link href={`/cardUpdate/${item._id}`}>
+                                        <button type="submit">
+                                            <span> edit </span>
+                                        </button>
+                                    </Link>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
+                {/*<Footer />*/}
+            </div>
         </div>
     )
 }
@@ -66,6 +63,14 @@ export default function Home(props) {
 export async function getServerSideProps(ctx) {
 
     const api = axiosClient(ctx);
+
+    const { tokenCardLink } = parseCookies(ctx);
+
+    if (!tokenCardLink) return {
+        redirect: {
+            destination: '/'
+        }
+    }
 
     const { 'data': dataForm } = await api.get('/links');
 

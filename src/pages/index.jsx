@@ -36,11 +36,11 @@ export default function ScreenLogin() {
   return (
     <div className={styles.body}>
       <Head>
-        <title>cardLink</title>
+        <title>LINK CARDS</title>
       </Head>
       <section className={styles.section}>
         <form className={styles.form} onSubmit={handleSubmit(login)}>
-          <input type="hidden" name="remember" defaultValue="true" />
+         
           <div>
             <div className={styles.inputField}>
               <label htmlFor="email-address">
