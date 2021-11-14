@@ -4,6 +4,7 @@ import { api } from '../apiLinks/axiosClientSide';
 import { parseCookies, setCookie } from 'nookies';
 import styles from '../../styles/pages/index.module.css';
 import Router from 'next/router';
+import Link from 'next/link';
 
 
 export default function ScreenLogin() {
@@ -40,7 +41,7 @@ export default function ScreenLogin() {
       </Head>
       <section className={styles.section}>
         <form className={styles.form} onSubmit={handleSubmit(login)}>
-         
+
           <div>
             <div className={styles.inputField}>
               <label htmlFor="email-address">
@@ -74,6 +75,12 @@ export default function ScreenLogin() {
           <button className={styles.btnLogar} type="submit">
             <span> Login </span>
           </button>
+          <Link href='/addUser'>
+            <button className={styles.btnLogar} type="submit">
+              <span>Register</span>
+            </button>
+          </Link>
+
         </form>
       </section>
     </div>

@@ -6,7 +6,7 @@ import { SideBarLeft } from '../components/sideBarLeft';
 
 
 
-export default function CardAdd(){
+export default function addUser(){
     
     const { register, handleSubmit } = useForm();
 
@@ -14,12 +14,12 @@ export default function CardAdd(){
 
     async function saveForm(data) {
 /**
- * data: { title, content, category }
+ * data: { name, email, password }
  */
         try {
 
-           await api.post('/links/create', data).then(() => {
-                Router.push('/home');
+           await api.post('/user/create', data).then(() => {
+                Router.push('/');
             })
 
         } catch (error) {
@@ -37,43 +37,45 @@ export default function CardAdd(){
                 <div>
 
                     <div>
-                        <label htmlFor="title_form">
-                            titulo
+                        <label htmlFor="name_form">
+                            name
                         </label>
                         <input
-                            {...register('title')}
-                            id="title_form"
-                            name="title"
+                            {...register('name')}
+                            id="name_form"
+                            name="name"
                             type="text"
                             required
-                            placeholder="titulo do formulário"
+                            placeholder="seu nome"
                         />
                     </div>
 
                     <div>
-                        <label htmlFor="content_form">
-                            links
+                        <label htmlFor="email_form">
+                            email
                         </label>
                         <textarea
-                            {...register('content')}
-                            id="content_form"
-                            name="content"
+                            {...register('email')}
+                            id="email_form"
+                            name="email"
                             required
-                            placeholder="campo para salvar os links"
+                            type="email"
+                            placeholder="insira seu email"
                         />
                     </div>
 
                     <div>
-                        <label htmlFor="category_form">
-                            categoria
+                        <label htmlFor="password_form">
+                            password
                         </label>
                         <input
-                            {...register('category')}
-                            id="category_form"
-                            name="category"
-                            type="text"
+                            {...register('password')}
+                            id="password_form"
+                            name="password"
+                            type="password"
                             required
-                            placeholder="category"
+                            placeholder="password"
+                            
                         />
                     </div>
 
@@ -81,7 +83,7 @@ export default function CardAdd(){
 
                 <div>
                     <button type="submit">
-                        <span> Salvar </span>
+                        <span> Registrar </span>
                     </button>
                 </div>
 
@@ -89,4 +91,3 @@ export default function CardAdd(){
         </div>
     )
 }
-
