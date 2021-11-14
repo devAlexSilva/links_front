@@ -23,7 +23,7 @@ const { cancelCookie } = useContext(AuthContext);
             </div>
 
             <div  className={styles.img}>
-                <img src="https://github.com/devAlexSilva.png" alt="alex dev"  width='60rem' height='60rem' />
+                <img className={styles.avatar} src="https://github.com/devAlexSilva.png" alt="alex dev" />
             </div>
         </div>
     )

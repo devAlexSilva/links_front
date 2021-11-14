@@ -1,3 +1,4 @@
+/*
 html,
 body {
   font-size: 100%;
@@ -21,3 +22,45 @@ span {
 * {
   box-sizing: border-box;
 }
+*/
+
+html,
+body {
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(150deg, #29041d, #0c0616); 
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+li {
+  background-color: rgba(214, 214, 214, 0.5);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  cursor: text;
+}
+

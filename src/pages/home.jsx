@@ -24,36 +24,45 @@ export default function Home(props) {
     }
 
     return (
-        <div>
-            <Header />
-{/*<SideBarLeft /> */}             
-            <div className={styles.container}>
-                {
-                    props.data.map(item => {
-                        return (
-                            <div key={item._id} className={styles.card}>
-                                <ul className={styles.ul}>
-                                    <li>{item.title}</li>
-                                    <li>{item.content}</li>
-                                    <li className={styles.title}>{item.category}</li>
-                                </ul>
-                                <div>
-                                    <button
-                                        type="submit"
-                                        onClick={() => { deleteForm(item._id) }}>
-                                        <span> delete </span>
-                                    </button>
-                        
-                                    <Link href={`/cardUpdate/${item._id}`}>
-                                        <button type="submit">
-                                            <span> edit </span>
+        <div className={styles.grid}>
+            <div className={styles.gridHeader}>
+                <Header />
+            </div>
+            <div className={styles.gridSideBar}>
+                <SideBarLeft />
+            </div>
+            <div className={styles.gridMain}>
+                <div className={styles.container}>
+                    {
+                        props.data.map(item => {
+                            return (
+                                <div key={item._id} className={styles.card}>
+                                    <ul className={styles.ul}>
+                                        <li>{item.title}</li>
+                                        <li>{item.content}</li>
+                                        <li className={styles.title}>{item.category}</li>
+                                    </ul>
+                                    <div>
+                                        <button
+                                            type="submit"
+                                            onClick={() => { deleteForm(item._id) }}>
+                                            <span> delete </span>
                                         </button>
-                                    </Link>
+
+                                        <Link href={`/cardUpdate/${item._id}`}>
+                                            <button type="submit">
+                                                <span> edit </span>
+                                            </button>
+                                        </Link>
+                                    </div>
                                 </div>
-                            </div>
-                        )
-                    })
-                }
+                            )
+                        })
+                    }
+
+                </div>
+            </div>
+            <div className={styles.gridFooter}>
                 {/*<Footer />*/}
             </div>
         </div>

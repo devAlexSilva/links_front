@@ -1,3 +1,16 @@
+.gridHeader {grid-area: header;}
+.gridSideBar {grid-area: sideBar;}
+.gridMain {grid-area: main;}
+.gridFooter {grid-area: footer;}
+
+.grid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas: 
+  'header header header header'
+  'sideBar sideBar main main'
+  'footer footer footer footer';
+}
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -9,8 +22,10 @@
 
 .container>* {
   margin: 0.5rem;
-  border: 0.12rem solid black;
   max-width: 350px ;
+  border: 0.12rem solid;
+  border-radius: 30px;
+  background-color: #023b74;
 }
 
 .card div{
@@ -21,10 +36,11 @@
 }
 
 .card button {
-  background-color:#00009C;
+  background-color:#007FFF;
   color:#FFFFFF;
   border-radius: 1rem;
   border: 2px solid blue;
+  cursor: pointer;
 }
 .card button:hover {
   background-color:#002a9cd2;
