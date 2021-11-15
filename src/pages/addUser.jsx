@@ -6,7 +6,7 @@ import { SideBarLeft } from '../components/sideBarLeft';
 
 
 
-export default function addUser(){
+export default function AddUser(){
     
     const { register, handleSubmit } = useForm();
 
