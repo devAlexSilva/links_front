@@ -72,6 +72,7 @@ export default function ScreenLogin() {
               />
             </div>
           </div>
+          <div className={styles.btnContainer}>
           <button className={styles.btnLogar} type="submit">
             <span> Login </span>
           </button>
@@ -80,7 +81,7 @@ export default function ScreenLogin() {
               <span>Register</span>
             </button>
           </Link>
-
+          </div>
         </form>
       </section>
     </div>

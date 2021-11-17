@@ -1,10 +1,8 @@
 
 .body {
-    background-color: black;
-  
+    background-color: black;  
     height: 100vh;
 }
-
 
 .section {
     display: flex;
@@ -39,16 +37,17 @@
     background-color: rgba(44, 42, 42, 0.151);
 }
 
+.btnContainer {
+    display: flex;
+    justify-content: space-between;
+}
 
 .form .btnLogar {
-    display: block;
     border-radius: 25px;
     background-color: rgba(0, 128, 0, 0.4);
     border: none;
-    padding: 6px;
-    min-width: 100px;
-    margin: auto;
-    
+    padding: 5px;
+    min-width: 35%;
 }
 
 .form .btnLogar:focus-within  {
