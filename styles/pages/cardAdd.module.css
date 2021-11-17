@@ -1,0 +1,54 @@
+.gridHeader {grid-area: header;}
+.gridSideBar {grid-area: sideBar;}
+.gridMain {grid-area: main;}
+.gridFooter {grid-area: footer;}
+
+.grid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas: 
+  'header header header header'
+  'sideBar sideBar main main'
+  'footer footer footer footer';
+}
+
+.container>* {
+  margin: 0.5rem;
+  max-width: 350px ;
+  border: 0.12rem solid;
+  border-radius: 30px;
+  background-color: #023b74;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card li {
+    display: flex;
+    /*align-items: center;*/
+    flex-direction: column;
+}
+
+.card li label {
+    margin-bottom: 2px;
+}
+
+.containerBtn button {
+  background-color:#007FFF;
+  color:#FFFFFF;
+  border-radius: 1rem;
+  border: 2px solid blue;
+  cursor: pointer;
+}
+.containerBtn button:hover {
+  background-color:#002a9cd2;
+}
+
+.container form ul li{
+  border-bottom: 0.05rem solid blue;
+  margin-bottom: 1rem;
+  overflow-wrap: break-word;
+}
+
+
+
