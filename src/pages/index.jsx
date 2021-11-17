@@ -73,14 +73,14 @@ export default function ScreenLogin() {
             </div>
           </div>
           <div className={styles.btnContainer}>
-          <button className={styles.btnLogar} type="submit">
-            <span> Login </span>
-          </button>
-          <Link href='/addUser'>
             <button className={styles.btnLogar} type="submit">
-              <span>Register</span>
+              <span> Login </span>
             </button>
-          </Link>
+            <Link href='/addUser'>
+              <button className={styles.btnLogar} type="submit">
+                <span>Register</span>
+              </button>
+            </Link>
           </div>
         </form>
       </section>

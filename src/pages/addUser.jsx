@@ -1,24 +1,25 @@
 import { useForm } from 'react-hook-form'
 import { api } from '../apiLinks/axiosClientSide';
 import Router from 'next/router';
-import { Header } from '../components/header';
-import { SideBarLeft } from '../components/sideBarLeft';
+import styles from '../../styles/pages/addUser.module.css'
+import Head from 'next/head';
+import Link from 'next/link';
 
 
 
-export default function AddUser(){
-    
+export default function AddUser() {
+
     const { register, handleSubmit } = useForm();
 
 
 
     async function saveForm(data) {
-/**
- * data: { name, email, password }
- */
+        /**
+         * data: { name, email, password }
+         */
         try {
 
-           await api.post('/user/create', data).then(() => {
+            await api.post('/user/create', data).then(() => {
                 Router.push('/');
             })
 
@@ -29,65 +30,66 @@ export default function AddUser(){
     }
 
     return (
-        <div>
-            <Header />
-            <SideBarLeft />
-            
-            <form onSubmit={handleSubmit(saveForm)}>
-                <div>
+        <div className={styles.body}>
+            <Head>
+                <title>LINK CARDS</title>
+            </Head>
+            <section className={styles.section}>
+                <form className={styles.form} onSubmit={handleSubmit(saveForm)}>
 
                     <div>
-                        <label htmlFor="name_form">
-                            name
-                        </label>
-                        <input
-                            {...register('name')}
-                            id="name_form"
-                            name="name"
-                            type="text"
-                            required
-                            placeholder="seu nome"
-                        />
+                        <div className={styles.inputField}>
+                            <label htmlFor="name">
+                                Name
+              </label>
+                            <input
+                                {...register('name')}
+                                id="name"
+                                name="name"
+                                type="text"
+                                required
+                                placeholder="nome de usuario"
+                            />
+                        </div>
+                        <div className={styles.inputField}>
+                            <label htmlFor="email-address">
+                                Email address
+              </label>
+                            <input
+                                {...register('email')}
+                                id="email-address"
+                                name="email"
+                                type="email"
+                                required
+                                placeholder="Email address"
+                            />
+                        </div>
+                        <div className={styles.inputField}>
+                            <label htmlFor="password">
+                                Password
+              </label>
+                            <input
+                                {...register('password')}
+                                id="password"
+                                name="password"
+                                type="password"
+                                required
+                                placeholder="xxxxxx"
+                            />
+                        </div>
                     </div>
-
-                    <div>
-                        <label htmlFor="email_form">
-                            email
-                        </label>
-                        <textarea
-                            {...register('email')}
-                            id="email_form"
-                            name="email"
-                            required
-                            type="email"
-                            placeholder="insira seu email"
-                        />
+                    <div className={styles.btnContainer}>
+                        <button className={styles.btnRegister} type="submit">
+                            <span>Register</span>
+                        </button>
+                        <Link href='/'>
+                            <button className={styles.btnRegister}>
+                                <span>Return</span>
+                            </button>
+                        </Link>
                     </div>
-
-                    <div>
-                        <label htmlFor="password_form">
-                            password
-                        </label>
-                        <input
-                            {...register('password')}
-                            id="password_form"
-                            name="password"
-                            type="password"
-                            required
-                            placeholder="password"
-                            
-                        />
-                    </div>
-
-                </div>
-
-                <div>
-                    <button type="submit">
-                        <span> Registrar </span>
-                    </button>
-                </div>
-
-            </form>
+                </form>
+            </section>
         </div>
     )
 }

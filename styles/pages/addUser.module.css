@@ -1,0 +1,54 @@
+
+.body {
+    background-color: black;  
+    height: 100vh;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form {
+    border: 2px solid rgb(255, 81, 0);
+    margin: 20px 0;
+    padding: 60px 50px;
+    border-radius: 15px;
+    background-color: azure;
+   
+}
+
+.form .inputField {
+    margin-bottom: 20px;
+}
+
+
+.form .inputField input {
+    border-radius: 8px;
+    display: block;
+    width: 100%;
+    margin-top: 3px;
+    padding: 4px;
+}
+.form .inputField input :focus {
+    background-color: rgba(44, 42, 42, 0.151);
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form .btnRegister {
+    border-radius: 25px;
+    background-color: rgba(0, 128, 0, 0.4);
+    border: none;
+    padding: 5px;
+    min-width: 35%;
+}
+
+.form .btnRegister:focus-within  {
+    background-color: rgba(0, 128, 0, 0.8);
+}
