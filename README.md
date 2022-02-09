@@ -1,5 +1,5 @@
 site para organizar links
 ---
 uma aplicação utilizando a API link-card
-feita para ajudar devs front-end que querem praticar
-consumindo uma API REST sem ter que criar uma.
+
+[-] corrigir bug no login: só dá pra realizar alguma operação no banco se atualizar a página após fazer o login, provavelmente porque o token não está sendo enviado na request. conferir o redirect.

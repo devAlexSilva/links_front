@@ -4,7 +4,6 @@ import styles from '../../styles/pages/Home.module.css'
 import Router from 'next/router'
 import { SideBarLeft } from '../components/sideBarLeft';
 import { Header } from '../components/header';
-import { Footer } from '../components/footer';
 import Link from 'next/link';
 import { parseCookies } from 'nookies';
 

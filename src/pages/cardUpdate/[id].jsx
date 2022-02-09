@@ -4,6 +4,7 @@ import { api } from "../../apiLinks/axiosClientSide";
 import Router from "next/router";
 import { Header } from "../../components/header";
 import { SideBarLeft } from "../../components/sideBarLeft";
+import styles from '../../../styles/pages/Home.module.css'
 
 
 export default function CardUpdate(props) {
@@ -27,67 +28,71 @@ export default function CardUpdate(props) {
 
     return (
         <div>
+            <div className={styles.grid}>
+                <Header />
+                <SideBarLeft />
+                <form onSubmit={handleSubmit(updateForm)}>
+                    <div className={styles.gridMain}>
+                        <div className={styles.container}>
+                            <div key={item._id} className={styles.card}>
 
-            <Header />
-            <SideBarLeft />
-            <form onSubmit={handleSubmit(updateForm)}>
-                <div>
+                                <ul className={styles.ul}>
+                                    <li>
+                                        <label htmlFor="title_form">
+                                            titulo
+                                        </label>
+                                        <input
+                                            {...register('title')}
+                                            id="title_form"
+                                            name="title"
+                                            type="text"
+                                            required
+                                            placeholder='exatas'
+                                        />
+                                    </li>
 
-                    <div>
-                        <label htmlFor="title_form">
-                            titulo
-                        </label>
-                        <input
-                            {...register('title')}
-                            id="title_form"
-                            name="title"
-                            type="text"
-                            required
-                            placeholder='exatas'
-                        />
+                                    <li>
+                                        <label htmlFor="content_form">
+                                            links
+                                        </label>
+                                        <textarea
+                                            {...register('content')}
+                                            id="content_form"
+                                            name="content"
+                                            required
+                                            placeholder='https://calculo.com'
+                                        />
+                                    </li>
+
+                                    <li className={styles.title}>
+                                        <label htmlFor="category_form">
+                                            categoria
+                                        </label>
+                                        <input
+                                            {...register('category')}
+                                            id="category_form"
+                                            name="category"
+                                            type="text"
+                                            required
+                                            placeholder='estudos'
+                                        />
+                                    </li>
+                                </ul>
+
+                                <div>
+                                    <button type="submit">
+                                        <span> Atualizar </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div>
-                        <label htmlFor="content_form">
-                            links
-                        </label>
-                        <textarea
-                            {...register('content')}
-                            id="content_form"
-                            name="content"
-                            required
-                            placeholder='https://calculo.com'
-                        />
-                    </div>
-
-                    <div>
-                        <label htmlFor="category_form">
-                            categoria
-                        </label>
-                        <input
-                            {...register('category')}
-                            id="category_form"
-                            name="category"
-                            type="text"
-                            required
-                            placeholder='estudos'
-                        />
-                    </div>
-
-                </div>
-
-                <div>
-                    <button type="submit">
-                        <span> Atualizar </span>
-                    </button>
-                </div>
-
-            </form>
+                </form>
 
 
 
 
-            {/*
+                {/*
                 props.data.map((itens)=>{
                     return (
                         <ul>
@@ -99,6 +104,7 @@ export default function CardUpdate(props) {
                     )
                 })
             */}
+            </div>
         </div>
     )
 }
