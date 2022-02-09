@@ -34,7 +34,7 @@ export default function CardUpdate(props) {
                 <form onSubmit={handleSubmit(updateForm)}>
                     <div className={styles.gridMain}>
                         <div className={styles.container}>
-                            <div key={item._id} className={styles.card}>
+                            <div className={styles.card}>
 
                                 <ul className={styles.ul}>
                                     <li>
